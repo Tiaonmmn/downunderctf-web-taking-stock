@@ -1,0 +1,15 @@
+version: "2.4"
+services:
+    app:
+      build: .
+      image: taking-stock.web.ctf
+      ulimits:
+        nproc: 1024
+        nofile:  # Incredibly overestimated
+          soft: 10000
+          hard: 20000
+      ports:
+          - 3000:8000
+      env_file:
+        - meta/env
+      
